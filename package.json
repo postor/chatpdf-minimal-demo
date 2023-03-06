@@ -2,8 +2,9 @@
   "name": "ts-react",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "dev": "node --loader ts-node/esm node_modules/@shack-js/cli/src/index.mjs dev -e .ts",
+    "dev": "node --loader ts-node/esm --experimental-modules node_modules/@shack-js/cli/src/index.mjs dev -e .ts",
     "build": "shack build && tsc",
     "start": "shack start -e .js -s ./dist/web -a ./dist/tsc/apis",
     "cli": "node --loader ts-node/esm commands/index.ts"
@@ -12,6 +13,8 @@
   "author": "",
   "dependencies": {
     "@shack-js/cli": "^1.1.7",
+    "execa": "^7.0.0",
+    "md5": "^2.3.0",
     "node-json-db": "^2.1.4"
   },
   "devDependencies": {
@@ -27,6 +30,7 @@
     "css-loader": "^6.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-nl2br": "^1.0.4",
     "react-router-dom": "^6.4.5",
     "style-loader": "^3.3.1",
     "ts-node": "^10.9.1",

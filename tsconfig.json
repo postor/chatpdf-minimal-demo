@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNEXT",
-    "module": "CommonJS",
+    "module": "ESNext",
     "outDir": "./dist/tsc",
     "strict": false,
     "moduleResolution": "node",
