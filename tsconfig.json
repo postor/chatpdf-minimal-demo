@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "CommonJS",
+    "outDir": "./dist/tsc",
+    "strict": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "./",
+    "!./dist"
+  ]
+}
