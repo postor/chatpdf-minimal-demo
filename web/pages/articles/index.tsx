@@ -23,7 +23,10 @@ export default function Index() {
         setLoading(true)
       let id = md5(text)
       await push(`/article/${id}`, { id, text })
-      await exec('python3', ['py/process-article.py', 'compile', `embeddings/${id}`, text], { env: { OPENAI_API_KEY: await load('/token') } })
+      await exec(
+        'python3',
+        ['py/process-article.py', 'compile', `embeddings/${id}`, text],
+        { env: { OPENAI_API_KEY: localStorage.getItem('token') } })
       nav(`/articles/${id}`)
     }}>Prepare It for Chat</button>
   </div>

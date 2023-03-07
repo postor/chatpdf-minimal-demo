@@ -30,7 +30,10 @@ export default function Post() {
           <button onClick={async () => {
             setQuestion('')
             setMsgs(msgs => [`Q:${question}`, ...msgs])
-            let { stdout } = await exec('python3', ['py/process-article.py', 'ask', `embeddings/${id}`, question], { env: { OPENAI_API_KEY: await load('/token') } })
+            let { stdout } = await exec(
+              'python3',
+              ['py/process-article.py', 'ask', `embeddings/${id}`, question],
+              { env: { OPENAI_API_KEY: localStorage.getItem('/token') } })
             let { answer } = JSON.parse(stdout)
             setMsgs(msgs => [`A:${answer}`, ...msgs])
           }}>Send</button>

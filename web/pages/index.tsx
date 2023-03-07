@@ -4,21 +4,17 @@ import { load, push } from "../../apis/db"
 
 export default function Index() {
   let [list, setList] = useState([])
-  let [token, setToken] = useState('')
+  let [token, setToken] = useState(localStorage.getItem('token'))
   let [tokenInput, setTokenInput] = useState('')
   useEffect(() => {
     load('/articles').then(x => setList(x))
-    load('/token').then(x=>{
-      setToken(x)
-      setTokenInput(x)
-    })
   }, [])
   return <div>
     <div>
       <input value={tokenInput} onChange={e => setTokenInput(e.target.value)} />
       <button onClick={()=>{
         setToken(tokenInput)
-        push('/token',tokenInput)
+        localStorage.setItem('token',tokenInput)
       }}>Update Token</button>
     </div>
     <hr />
