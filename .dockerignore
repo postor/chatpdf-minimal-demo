@@ -1,2 +1,6 @@
 dist
 node_modules
+db.json
+embeddings
+dist
+.git
