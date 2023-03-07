@@ -5,7 +5,7 @@ import { load, push } from "../../apis/db"
 export default function Index() {
   let [list, setList] = useState([])
   let [token, setToken] = useState(localStorage.getItem('token'))
-  let [tokenInput, setTokenInput] = useState('')
+  let [tokenInput, setTokenInput] = useState(localStorage.getItem('token'))
   useEffect(() => {
     load('/articles').then(x => setList(x))
   }, [])

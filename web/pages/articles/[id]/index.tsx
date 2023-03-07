@@ -33,7 +33,7 @@ export default function Post() {
             let { stdout } = await exec(
               'python3',
               ['py/process-article.py', 'ask', `embeddings/${id}`, question],
-              { env: { OPENAI_API_KEY: localStorage.getItem('/token') } })
+              { env: { OPENAI_API_KEY: localStorage.getItem('token') } })
             let { answer } = JSON.parse(stdout)
             setMsgs(msgs => [`A:${answer}`, ...msgs])
           }}>Send</button>
