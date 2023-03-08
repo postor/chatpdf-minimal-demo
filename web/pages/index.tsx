@@ -12,21 +12,20 @@ export default function Index() {
   return <div>
     <div>
       <input value={tokenInput} onChange={e => setTokenInput(e.target.value)} />
-      <button onClick={()=>{
+      <button onClick={() => {
         setToken(tokenInput)
-        localStorage.setItem('token',tokenInput)
-      }}>Update Token</button>
+        localStorage.setItem('token', tokenInput)
+      }}>更新 API key | Update API key</button>
     </div>
     <hr />
     {token
       ? <div>
-        <h2>Choose Article or Create New</h2>
         <ul>
           {list.map(x => <li key={x}>
-            <Link to={`/posts`}>{x}</Link>
+            <Link to={`/articles/${x}`}>{x}</Link>
           </li>)}
         </ul>
-        <Link to={'/articles'}>Create New</Link>
+        <Link to={'/articles'}>新建 | Create New</Link>
       </div>
 
       : null

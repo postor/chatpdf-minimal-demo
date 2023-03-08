@@ -13,7 +13,7 @@ export default function Post() {
     load(`/article/${id}/text`).then(x => setArticle(x))
   }, [id])
   return <article>
-    <h2>Chat with {id}</h2>
+    <h2>聊天|Chat</h2>
     <div style={{
       display: 'flex',
     }}>
@@ -36,7 +36,7 @@ export default function Post() {
               { env: { OPENAI_API_KEY: localStorage.getItem('token') } })
             let { answer } = JSON.parse(stdout)
             setMsgs(msgs => [`A:${answer}`, ...msgs])
-          }}>Send</button>
+          }}>发送问题 | Send Question</button>
         </div>
         <ul>{msgs.map((x, i) => <li key={i}>{x}</li>)}</ul>
       </div>
